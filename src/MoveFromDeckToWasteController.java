@@ -34,11 +34,12 @@ public class MoveFromDeckToWasteController {
 		return wasteSet;
 	}
 
-	public void moveCardFromDeckToWaste() {
-		for (int i = 0; i < 3; i++) {
+	public void moveCardFromDeckToWasteWhenThreeOrMoreCardsLeft() {
+		int numberOfCardsToRemove = 3;
+		for (int i = 0; i < numberOfCardsToRemove; i++) {
 			wasteSet.add(deckSet.get(i).uncover());		
 		}
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < numberOfCardsToRemove; i++) {
 			deckSet.remove(i);
 		}
 	}

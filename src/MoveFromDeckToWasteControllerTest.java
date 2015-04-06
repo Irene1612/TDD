@@ -25,16 +25,21 @@ public class MoveFromDeckToWasteControllerTest {
 	}
 
 	@Test
-	public void moveCardFromDeckToWasteTest() {
+	public void moveCardFromDeckToWasteWhenThreeOrMoreCardsLeftTest() {
 		ArrayList<Card> cardsFromDeskToWaste = new ArrayList<Card>(3);
-		for (int i = 0; i < 3; i++) {
+		int deckSize = moveFromDeckToWasteController.getDeckSet().size();
+		int wasteSize = moveFromDeckToWasteController.getWasteSet().size();
+		int numberOfCardsToRemove = 3;
+		for (int i = 0; i < numberOfCardsToRemove; i++) {
 			cardsFromDeskToWaste.add(moveFromDeckToWasteController.getDeckSet().get(i).uncover());
 		}
-		moveFromDeckToWasteController.moveCardFromDeckToWaste();
-		assertEquals(21, moveFromDeckToWasteController.getDeckSet().size());
-		assertEquals(3, moveFromDeckToWasteController.getWasteSet().size());
-		for (int i = 0; i < 3; i++) {
+		moveFromDeckToWasteController.moveCardFromDeckToWasteWhenThreeOrMoreCardsLeft();
+		assertEquals(deckSize-3, moveFromDeckToWasteController.getDeckSet().size());
+		assertEquals(wasteSize+3, moveFromDeckToWasteController.getWasteSet().size());
+		for (int i = 0; i < numberOfCardsToRemove; i++) {
 			assertEquals(cardsFromDeskToWaste.get(i), moveFromDeckToWasteController.getWasteSet().get(i));
 		}
 	}
+	
+	
 }
