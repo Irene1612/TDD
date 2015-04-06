@@ -31,6 +31,10 @@ public class StartControllerTest {
 		for(Card card : peekEachTableu){
 			assertNotNull(card);
 			assertTrue(card.uncovered());
+			//Elimino la carta para comprobar que era la unica y luego la vuelvo a meter
+			peekEachTableu.remove(card);
+			assertFalse(peekEachTableu.contains(card));
+			peekEachTableu.add(card);
 		}
 	}
 	
@@ -38,4 +42,6 @@ public class StartControllerTest {
 	public void isEmptyTheWasteTest(){
 		assertTrue(startController.isEmptyTheWaste());
 	}
+	
+	
 }
