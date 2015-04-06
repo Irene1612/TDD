@@ -26,12 +26,21 @@ public class MoveFromDeckToWasteController {
 		this.wasteSet = new ArrayList<Card>();
 	}
 
-	public ArrayList<Card> getDeskSet() {
+	public ArrayList<Card> getDeckSet() {
 		return deckSet;
 	}
 
 	public ArrayList<Card> getWasteSet() {
 		return wasteSet;
+	}
+
+	public void moveCardFromDeckToWaste() {
+		for (int i = 0; i < 3; i++) {
+			wasteSet.add(deckSet.get(i).uncover());		
+		}
+		for (int i = 0; i < 3; i++) {
+			deckSet.remove(i);
+		}
 	}
 
 }

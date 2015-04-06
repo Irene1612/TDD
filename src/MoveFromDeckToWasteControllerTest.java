@@ -25,12 +25,12 @@ public class MoveFromDeckToWasteControllerTest {
 	}
 
 	@Test
-	public void moveCardFromDeskToWasteTest() {
+	public void moveCardFromDeckToWasteTest() {
 		ArrayList<Card> cardsFromDeskToWaste = new ArrayList<Card>(3);
 		for (int i = 0; i < 3; i++) {
 			cardsFromDeskToWaste.add(moveFromDeckToWasteController.getDeckSet().get(i).uncover());
 		}
-		moveFromDeckToWasteController.moveCardFromDeskToWaste();
+		moveFromDeckToWasteController.moveCardFromDeckToWaste();
 		assertEquals(21, moveFromDeckToWasteController.getDeckSet().size());
 		assertEquals(3, moveFromDeckToWasteController.getWasteSet().size());
 		for (int i = 0; i < 3; i++) {
