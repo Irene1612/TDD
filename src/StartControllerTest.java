@@ -34,5 +34,8 @@ public class StartControllerTest {
 		}
 	}
 	
-
+	@Test
+	public void isEmptyTheWasteTest(){
+		assertTrue(startController.isEmptyTheWaste());
+	}
 }
