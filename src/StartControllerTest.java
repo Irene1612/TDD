@@ -55,6 +55,7 @@ public class StartControllerTest {
 				Card card = coveredTableauCards.get(i).get(j);
 				assertNotNull(card);
 				assertTrue(card.isCovered());
+				//TODO comprobar si son diferentes
 			}
 		}
 	}
