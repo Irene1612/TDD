@@ -40,8 +40,19 @@ public class MoveFromDeckToWasteController {
 			wasteSet.add(deckSet.get(i).uncover());		
 		}
 		for (int i = 0; i < numberOfCardsToRemove; i++) {
-			deckSet.remove(i);
+			deckSet.remove(0);
 		}
+	}
+
+	public void moveCardFromDeckToWasteWhenTwoCardsLeft() {
+		int numberOfCardsToRemove = 2;
+		for (int i = 0; i < numberOfCardsToRemove; i++) {
+			wasteSet.add(deckSet.get(i).uncover());		
+		}
+		for (int i = 0; i < numberOfCardsToRemove; i++) {
+			deckSet.remove(0);
+		}
+		
 	}
 
 }

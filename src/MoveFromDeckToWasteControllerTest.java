@@ -29,7 +29,7 @@ public class MoveFromDeckToWasteControllerTest {
 		int numberOfCardsToRemove = 3;
 		ArrayList<Card> cardsFromDeskToWaste = new ArrayList<Card>(numberOfCardsToRemove);
 		int deckSize = moveFromDeckToWasteController.getDeckSet().size();
-		int wasteSize = moveFromDeckToWasteController.getWasteSet().size();		
+		int wasteSize = moveFromDeckToWasteController.getWasteSet().size();
 		for (int i = 0; i < numberOfCardsToRemove; i++) {
 			cardsFromDeskToWaste.add(moveFromDeckToWasteController.getDeckSet().get(i).uncover());
 		}
@@ -46,8 +46,9 @@ public class MoveFromDeckToWasteControllerTest {
 		int numberOfCardsToRemove = 2;
 		ArrayList<Card> cardsFromDeskToWaste = new ArrayList<Card>(numberOfCardsToRemove);
 		int deckSize = moveFromDeckToWasteController.getDeckSet().size();
-		for (int i = 0; i < deckSize-numberOfCardsToRemove; i++) {
-			moveFromDeckToWasteController.getDeckSet().remove(i);
+		System.out.println(deckSize);
+		for (int i = 0; i < deckSize - numberOfCardsToRemove; i++) {
+			moveFromDeckToWasteController.getDeckSet().remove(0);
 		}
 		deckSize = moveFromDeckToWasteController.getDeckSet().size();
 		int wasteSize = moveFromDeckToWasteController.getWasteSet().size();
