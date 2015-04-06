@@ -46,7 +46,6 @@ public class MoveFromDeckToWasteControllerTest {
 		int numberOfCardsToRemove = 2;
 		ArrayList<Card> cardsFromDeskToWaste = new ArrayList<Card>(numberOfCardsToRemove);
 		int deckSize = moveFromDeckToWasteController.getDeckSet().size();
-		System.out.println(deckSize);
 		for (int i = 0; i < deckSize - numberOfCardsToRemove; i++) {
 			moveFromDeckToWasteController.getDeckSet().remove(0);
 		}
@@ -56,7 +55,28 @@ public class MoveFromDeckToWasteControllerTest {
 			cardsFromDeskToWaste.add(moveFromDeckToWasteController.getDeckSet().get(i).uncover());
 		}
 		moveFromDeckToWasteController.moveCardFromDeckToWasteWhenTwoCardsLeft();
-		assertEquals(deckSize - numberOfCardsToRemove, moveFromDeckToWasteController.getDeckSet().size());
+		assertEquals(0, moveFromDeckToWasteController.getDeckSet().size());
+		assertEquals(wasteSize + numberOfCardsToRemove, moveFromDeckToWasteController.getWasteSet().size());
+		for (int i = 0; i < numberOfCardsToRemove; i++) {
+			assertEquals(cardsFromDeskToWaste.get(i), moveFromDeckToWasteController.getWasteSet().get(i));
+		}
+	}
+	
+	@Test
+	public void moveCardFromDeckToWasteWhenOneCardLeftTest() {
+		int numberOfCardsToRemove = 1;
+		ArrayList<Card> cardsFromDeskToWaste = new ArrayList<Card>(numberOfCardsToRemove);
+		int deckSize = moveFromDeckToWasteController.getDeckSet().size();
+		for (int i = 0; i < deckSize - numberOfCardsToRemove; i++) {
+			moveFromDeckToWasteController.getDeckSet().remove(0);
+		}
+		deckSize = moveFromDeckToWasteController.getDeckSet().size();
+		int wasteSize = moveFromDeckToWasteController.getWasteSet().size();
+		for (int i = 0; i < numberOfCardsToRemove; i++) {
+			cardsFromDeskToWaste.add(moveFromDeckToWasteController.getDeckSet().get(i).uncover());
+		}
+		moveFromDeckToWasteController.moveCardFromDeckToWasteWhenTwoCardsLeft();
+		assertEquals(0, moveFromDeckToWasteController.getDeckSet().size());
 		assertEquals(wasteSize + numberOfCardsToRemove, moveFromDeckToWasteController.getWasteSet().size());
 		for (int i = 0; i < numberOfCardsToRemove; i++) {
 			assertEquals(cardsFromDeskToWaste.get(i), moveFromDeckToWasteController.getWasteSet().get(i));
