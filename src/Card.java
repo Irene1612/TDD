@@ -2,14 +2,16 @@ public class Card {
 
 	private int suit;
 	private int number;
+	private boolean covered;
 
-	public Card(int suit, int number) {
+	public Card(int suit, int number, boolean covered) {
 		this.number = number;
 		this.suit = suit;
+		this.covered = covered;
 	}
 
-	public boolean uncovered() {
-		return true;
+	public boolean isCovered() {
+		return covered;
 	}
 
 	@Override
