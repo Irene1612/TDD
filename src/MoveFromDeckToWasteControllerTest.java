@@ -75,7 +75,7 @@ public class MoveFromDeckToWasteControllerTest {
 		for (int i = 0; i < numberOfCardsToRemove; i++) {
 			cardsFromDeskToWaste.add(moveFromDeckToWasteController.getDeckSet().get(i).uncover());
 		}
-		moveFromDeckToWasteController.moveCardFromDeckToWasteWhenTwoCardsLeft();
+		moveFromDeckToWasteController.moveCardFromDeckToWasteWhenOneCardsLeft();
 		assertEquals(0, moveFromDeckToWasteController.getDeckSet().size());
 		assertEquals(wasteSize + numberOfCardsToRemove, moveFromDeckToWasteController.getWasteSet().size());
 		for (int i = 0; i < numberOfCardsToRemove; i++) {
