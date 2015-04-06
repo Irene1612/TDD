@@ -14,10 +14,22 @@ public class Card {
 		return covered;
 	}
 
+	public Card uncover() {
+		this.covered = false;
+		return this;
+	}
+	
 	@Override
 	public boolean equals(Object object){
 		assert object instanceof Card;
 		Card card = (Card) object;
-		return card.suit == suit && card.number == number;	
+		return card.suit == suit && card.number == number && card.covered == covered;	
 	}
+
+	@Override
+	public String toString() {
+		return "Número: " + this.number + " - Palo: " + this.suit + " - ¿Tapada?: " + this.covered;
+	}
+	
+	
 }
