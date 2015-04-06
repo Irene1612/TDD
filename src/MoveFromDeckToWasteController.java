@@ -35,27 +35,18 @@ public class MoveFromDeckToWasteController {
 	}
 
 	public void moveCardFromDeckToWasteWhenThreeOrMoreCardsLeft() {
-		int numberOfCardsToRemove = 3;
-		for (int i = 0; i < numberOfCardsToRemove; i++) {
-			wasteSet.add(deckSet.get(i).uncover());
-		}
-		for (int i = 0; i < numberOfCardsToRemove; i++) {
-			deckSet.remove(0);
-		}
+		this.moveCardFromDeck(3);
 	}
 
 	public void moveCardFromDeckToWasteWhenTwoCardsLeft() {
-		int numberOfCardsToRemove = 2;
-		for (int i = 0; i < numberOfCardsToRemove; i++) {
-			wasteSet.add(deckSet.get(i).uncover());
-		}
-		for (int i = 0; i < numberOfCardsToRemove; i++) {
-			deckSet.remove(0);
-		}
+		this.moveCardFromDeck(2);
 	}
 
 	public void moveCardFromDeckToWasteWhenOneCardsLeft() {
-		int numberOfCardsToRemove = 1;
+		this.moveCardFromDeck(1);
+	}
+	
+	private void moveCardFromDeck(int numberOfCardsToRemove){
 		for (int i = 0; i < numberOfCardsToRemove; i++) {
 			wasteSet.add(deckSet.get(i).uncover());
 		}
@@ -63,5 +54,4 @@ public class MoveFromDeckToWasteController {
 			deckSet.remove(0);
 		}
 	}
-
 }
