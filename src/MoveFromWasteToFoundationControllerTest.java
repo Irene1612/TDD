@@ -21,7 +21,6 @@ public class MoveFromWasteToFoundationControllerTest {
 			Random r = new Random();
 			cardOnTopWaste = new Card(r.nextInt(3), r.nextInt(11), false);
 		} while (moveFromWasteToFoundationController.getWasteSet().contains(cardOnTopWaste));
-		moveFromWasteToFoundationController.getWasteSet().add(cardOnTopWaste);
 	}
 
 	@Test
@@ -37,5 +36,7 @@ public class MoveFromWasteToFoundationControllerTest {
 			assertFalse(wasteSet.contains(card));
 			wasteSet.add(card);
 		}
+		wasteSet.add(cardOnTopWaste);
+		assertEquals(cardOnTopWaste, wasteSet.get(wasteSize));
 	}
 }
