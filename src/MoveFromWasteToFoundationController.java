@@ -5,9 +5,24 @@ import java.util.Random;
 public class MoveFromWasteToFoundationController {
 	
 	ArrayList<Card> wasteSet;
+	ArrayList<ArrayList<Card>> foundationsSet;
 	
 	public MoveFromWasteToFoundationController(){
 		this.initializeWaste();
+	}
+
+	public void initializeFoundations(int number, int suit) {
+		foundationsSet = new ArrayList<ArrayList<Card>>();
+		for (int i = 0; i < 4; i++) {			
+			ArrayList<Card> oneFoundation = new ArrayList<Card>();
+			if(i==suit){
+				for(int j = 0; j < number; j++){
+					Card card = new Card(suit, j, false);
+					oneFoundation.add(card);
+				}
+			}			
+			foundationsSet.add(oneFoundation);
+		}
 	}
 
 	private void initializeWaste() {
@@ -26,6 +41,10 @@ public class MoveFromWasteToFoundationController {
 
 	public ArrayList<Card> getWasteSet() {
 		return wasteSet;
+	}
+
+	public ArrayList<ArrayList<Card>> getFoundationsSet() {		
+		return foundationsSet;
 	}
 
 }
