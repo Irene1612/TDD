@@ -16,8 +16,7 @@ public class MoveFromWasteToFoundationControllerTest {
 
 	@Before
 	public void before() {
-		moveFromWasteToFoundationController = new MoveFromWasteToFoundationController();
-		moveFromWasteToFoundationController.wasteSet.add(cardOnTopWaste);
+		moveFromWasteToFoundationController = new MoveFromWasteToFoundationController();		
 		do {
 			Random r = new Random();
 			cardOnTopWaste = new Card(r.nextInt(3), r.nextInt(11), false);
@@ -39,6 +38,7 @@ public class MoveFromWasteToFoundationControllerTest {
 			assertFalse(wasteSet.contains(card));
 			wasteSet.add(card);
 		}
+		moveFromWasteToFoundationController.getWasteSet().add(cardOnTopWaste);
 		assertEquals(cardOnTopWaste, wasteSet.get(wasteSize));
 	}
 
@@ -53,6 +53,9 @@ public class MoveFromWasteToFoundationControllerTest {
 
 	@Test
 	public void moveFromWasteToFoundationTest() {
+		if(!moveFromWasteToFoundationController.getWasteSet().contains(cardOnTopWaste)){
+			moveFromWasteToFoundationController.getWasteSet().add(cardOnTopWaste);
+		}
 		int foundationSizeBeforeMove = moveFromWasteToFoundationController.getFoundationsSet().get(
 				cardOnTopWaste.getSuit()).size();
 		int wasteSizeBeforeMove = moveFromWasteToFoundationController.getWasteSet().size();

@@ -47,4 +47,10 @@ public class MoveFromWasteToFoundationController {
 		return foundationsSet;
 	}
 
+	public void moveFromWasteToFoundation() {
+		Card cardToMove = wasteSet.get(wasteSet.size());
+		foundationsSet.get(cardToMove.getSuit()).add(cardToMove);
+		wasteSet.remove(wasteSet.size());
+	}
+
 }
