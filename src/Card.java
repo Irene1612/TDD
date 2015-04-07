@@ -9,6 +9,14 @@ public class Card {
 		this.suit = suit;
 		this.covered = covered;
 	}
+	
+	public int getSuit() {
+		return suit;
+	}
+
+	public int getNumber() {
+		return number;
+	}
 
 	public boolean isCovered() {
 		return covered;

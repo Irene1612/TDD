@@ -39,4 +39,13 @@ public class MoveFromWasteToFoundationControllerTest {
 		wasteSet.add(cardOnTopWaste);
 		assertEquals(cardOnTopWaste, wasteSet.get(wasteSize));
 	}
+	
+	@Test
+	public void initializeFoundationsTest() {
+		ArrayList<ArrayList<Card>> foundations = moveFromWasteToFoundationController.getFoundationsSet();
+		int numberOfFoundations = foundations.size();
+		assertEquals(4, numberOfFoundations);
+		ArrayList<Card> foundationOfDestination = foundations.get(cardOnTopWaste.getSuit());
+		assertEquals(cardOnTopWaste.getNumber()+1, foundationOfDestination.size());			
+	}
 }
