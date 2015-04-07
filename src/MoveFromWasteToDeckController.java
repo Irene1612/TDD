@@ -21,11 +21,11 @@ public class MoveFromWasteToDeckController {
 	}
 	
 	private void initializeDeck() {
-		this.deckSet = new ArrayList<Card>();
+		deckSet = new ArrayList<Card>();
 	}
 	
 	private void initializeWaste() {
-		this.wasteSet = new ArrayList<Card>();
+		wasteSet = new ArrayList<Card>();
 		Random r = new Random();
 		int wasteSize = r.nextInt(25);
 		for (int i = 0; i < wasteSize; i++) {
@@ -33,9 +33,20 @@ public class MoveFromWasteToDeckController {
 			do {
 				r = new Random();
 				card = new Card(r.nextInt(3), r.nextInt(11), false);
-			} while (this.wasteSet.contains(card));
-			this.wasteSet.add(card);
+			} while (wasteSet.contains(card));
+			wasteSet.add(card);
 		}
+	}
+
+	public void moveCardFromWasteToDeck() {
+		int wasteSize = wasteSet.size();
+		for (int i = 0; i < wasteSize; i++) {
+			deckSet.add(wasteSet.get(i).cover());
+		}
+		for (int i = 0; i < wasteSize; i++) {
+			wasteSet.remove(0);
+		}
+		
 	}
 
 }
