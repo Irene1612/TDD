@@ -33,4 +33,19 @@ public class MoveFromWasteToDeckControllerTest {
 			wasteSet.add(card);
 		}
 	}
+	
+	@Test
+	public void moveCardFromWasteToDeckTest() {
+		int wasteInitialSize = moveFromWasteToDeckController.getWasteSet().size();
+		ArrayList<Card> cardsFromWasteToDeck = new ArrayList<Card>(wasteInitialSize);
+		for (int i = 0; i < wasteInitialSize; i++) {
+			cardsFromWasteToDeck.add(moveFromWasteToDeckController.getWasteSet().get(i).cover());
+		}
+		moveFromWasteToDeckController.moveCardFromWasteToDeck();
+		assertEquals(wasteInitialSize, moveFromWasteToDeckController.getDeckSet().size());
+		assertEquals(0, moveFromWasteToDeckController.getWasteSet().size());
+		for (int i = 0; i < cardsFromWasteToDeck.size(); i++) {
+			assertEquals(cardsFromWasteToDeck.get(i), moveFromWasteToDeckController.getDeckSet().get(i));
+		}
+	}
 }

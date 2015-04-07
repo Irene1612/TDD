@@ -30,6 +30,11 @@ public class Card {
 	public String toString() {
 		return "Número: " + this.number + " - Palo: " + this.suit + " - ¿Tapada?: " + this.covered;
 	}
+
+	public Card cover() {
+		this.covered = true;
+		return this;
+	}
 	
 	
 }
